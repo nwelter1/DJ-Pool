@@ -8,3 +8,8 @@ class UserInfoForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField()
+
+class BlogPostForm(FlaskForm):
+    title = StringField('Title', validators=[DataRequired()])
+    post = TextAreaField('Post', validators=[DataRequired()])
+    submit = SubmitField()
