@@ -20,6 +20,14 @@ def blog():
 def songpool():
     songs = SongPost.query.all()
     return render_template('songpool.html', songs=songs)
+
+#Your Profile route
+@app.route('/yourprofile')
+@login_required
+def yourprofile():
+    songs = SongPost.query.all()
+    posts = Post.query.all()
+    return render_template('yourprofile.html', songs=songs,posts=posts)
 # Register Route
 @app.route('/register', methods=['GET', 'POST'])
 def register():

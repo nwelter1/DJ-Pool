@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="page-title">Your Profile</h1>
+<h2>Username: {{ current_user.username }} </h2>
+<h3>Your Contributions</h3>
+<div class="container">
+    <h2>Blog Posts</h2>
+{% for content in posts %}
+    {% if content.user_id == current_user.id %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title">{{ content.title }}</h5>
+        <h6 class="card-subtitle mb-2 text-muted"> Written by: {{ current_user.username }}</h6>
+        <p class="card-text">{{ content.post }}</p>
+        </div>
+    </div>
+    {% endif %}
+{% endfor %}
+</div>
+<div class="container">
+<h2>Songs</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Song</th>
+            <th scope="col">Artist</th>
+            <th scope="col">BPM</th>
+            <th scope="col">Key</th>
+        </tr>
+    </thead>
+    {% for content in songs %}
+        {% if content.user_id == current_user.id %}
+        <tr>
+            <td>{{ content.song }}</td>
+            <td>{{ content.artist }}</td>
+            <td>{{ content.bpm }}</td>
+            <td>{{ content.key }}</td>
+        </tr>
+        {% endif %}
+    {% endfor %}
+</table>
+</div>
+{% endblock content %}
