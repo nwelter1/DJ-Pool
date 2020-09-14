@@ -81,6 +81,17 @@ def createapost():
         return redirect(url_for('createapost'))
     return render_template("createapost.html", form=form)
 
+# Retrieve Method for Posts
+@app.route('/posts/<int:post_id>')
+@login_required
+def post_detail(post_id):
+    post_content = Post.query.get_or_404(post_id)
+    return render_template('post_detail.html', post_content=post_content)
+
+
+
+
+
 # Create a Song Post Route 
 @app.route('/createasong', methods=['GET',"POST"])
 @login_required
@@ -100,6 +111,13 @@ def createasong():
         return redirect(url_for('createasong'))
         print('\n', song, artist, bpm, key, download)
     return render_template('createasong.html', form =form)
+
+# Retireve Method for Songs
+@app.route('/songs/<int:post_id>')
+@login_required
+def song_detail(post_id):
+    post = SongPost.query.get_or_404(post_id)
+    return render_template('song_detail.html', post=post)
 #log out route
 @app.route('/logout')
 def logout():

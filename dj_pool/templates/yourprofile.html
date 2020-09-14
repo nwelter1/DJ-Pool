@@ -10,7 +10,7 @@
     {% if content.user_id == current_user.id %}
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-        <h5 class="card-title">{{ content.title }}</h5>
+        <h5 class="card-title"><a href="{{ url_for('post_detail', post_id = content.id) }}">{{ content.title }}</a></h5>
         <h6 class="card-subtitle mb-2 text-muted"> Written by: {{ current_user.username }}</h6>
         <p class="card-text">{{ content.post }}</p>
         </div>
@@ -32,7 +32,7 @@
     {% for content in songs %}
         {% if content.user_id == current_user.id %}
         <tr>
-            <td>{{ content.song }}</td>
+            <td><a href="{{ url_for('song_detail', post_id = content.id) }}">{{ content.song }}</a></td>
             <td>{{ content.artist }}</td>
             <td>{{ content.bpm }}</td>
             <td>{{ content.key }}</td>

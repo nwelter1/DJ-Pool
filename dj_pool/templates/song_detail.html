@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h1>{{ current_user.username }}'s song post</h1>
+    <h3>Content:</h3>
+    <hr>
+    <h3>song: {{ post.song }}</h3>
+    <h4>Artist: {{ post.artist }}</h4>
+    <h5>Key {{ post.key }}</h5>
+    <h5>BPM: {{ post.bpm }}</h5>
+    <h5>Download Link: {{ post.download }}</h5>
+
+    <blockquote>Date Created: {{ post.date_created }}</blockquote>
+</div>
+
+{% endblock content %}
