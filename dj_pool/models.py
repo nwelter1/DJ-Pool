@@ -17,7 +17,7 @@ class User(db.Model, UserMixin):
     def __init__(self,username,email,password):
         self.username = username
         self.email = email
-        self.password = password
+        self.password = self.set_password(password)
 
     def set_password(self,password):
         self.pw_hash = generate_password_hash(password)
@@ -45,13 +45,18 @@ class SongPost(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     song = db.Column(db.String(200))
     artist = db.Column(db.String(200))
+    bpm = db.Column(db.Integer)
+    key = db.Column(db.String(10))
     download = db.Column(db.String(300))
     date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
-    def __init__(self, song, artist, user_id):
+    def __init__(self, song, artist, bpm, key, download, user_id):
         self.song = song
         self.artist = artist
+        self.bpm = bpm
+        self.key = key
+        self.download = download
         self.user_id = user_id
 
     def __repr__(self):

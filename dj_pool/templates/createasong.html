@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <fieldset>
+            {{ form.song.label }}
+            {{ form.song(class="form-control", placeholder="Song") }}
+        </fieldset>
+        <fieldset>
+            {{ form.artist.label }}
+            {{ form.artist(class="form-control", placeholder="Artist")}}
+        </fieldset>
+        <fieldset>
+            {{ form.bpm.label }}
+            {{ form.bpm(class="form-control", placeholder="BPM") }}
+        </fieldset>
+        <fieldset>
+            {{ form.key.label }}
+            {{ form.key(class="form-control", placeholder="Key") }}
+        </fieldset>
+        <fieldset>
+            {{ form.download.label }}
+            {{ form.download(class="form-control", placeholder="Download Link") }}
+        </fieldset>
+        {{ form.submit(class="btn btn-success") }}
+    </div>
+</form>
+{% endblock content %}

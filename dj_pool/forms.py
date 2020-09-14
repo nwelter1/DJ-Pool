@@ -18,3 +18,11 @@ class LoginForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField()
+
+class SongPostForm(FlaskForm):
+    song = StringField('Song', validators=[DataRequired()])
+    artist = StringField('Artist', validators=[DataRequired()])
+    bpm = StringField('BPM')
+    key = StringField('Key')
+    download = StringField("Download", validators=[DataRequired()])
+    submit = SubmitField()

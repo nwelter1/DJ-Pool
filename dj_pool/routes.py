@@ -1,6 +1,6 @@
 from dj_pool import app, db, Message, mail
 from flask import render_template, request, redirect, url_for
-from dj_pool.forms import UserInfoForm, BlogPostForm, LoginForm
+from dj_pool.forms import UserInfoForm, BlogPostForm, LoginForm, SongPostForm
 from dj_pool.models import User, Post, SongPost, check_password_hash
 from flask_login import login_required, login_user, current_user, logout_user
 # Home Route
@@ -8,6 +8,18 @@ from flask_login import login_required, login_user, current_user, logout_user
 def home():
     return render_template("home.html")
 
+# Blog route
+@app.route('/blog')
+def blog():
+    posts = Post.query.all()
+    return render_template('blog.html', posts=posts)
+
+#Song Pool Route
+@app.route('/songpool')
+@login_required
+def songpool():
+    songs = SongPost.query.all()
+    return render_template('songpool.html', songs=songs)
 # Register Route
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -53,10 +65,33 @@ def createapost():
     if request.method == 'POST' and form.validate():
         title = form.title.data
         post = form.post.data
-        print('\n', title, post)
+        user_id = current_user.id
+        post_content = Post(title, post, user_id)
+
+        db.session.add(post_content)
+        db.session.commit()
+        return redirect(url_for('createapost'))
     return render_template("createapost.html", form=form)
 
+# Create a Song Post Route 
+@app.route('/createasong', methods=['GET',"POST"])
+@login_required
+def createasong():
+    form = SongPostForm()
+    if request.method == 'POST' and form.validate():
+        song = form.song.data
+        artist = form.artist.data
+        bpm = form.bpm.data
+        key = form.key.data
+        download = form.download.data
+        user_id = current_user.id
+        post = SongPost(song, artist, bpm, key, download, user_id)
 
+        db.session.add(post)
+        db.session.commit()
+        return redirect(url_for('createasong'))
+        print('\n', song, artist, bpm, key, download)
+    return render_template('createasong.html', form =form)
 #log out route
 @app.route('/logout')
 def logout():

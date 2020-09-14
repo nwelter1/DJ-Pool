@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="page-title">Song Pool</h1>
+<h5><a href="{{ url_for('createasong') }}">Add a Song</a></h5>
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for songs..." title="Type in a song">
+<table id="myTable" class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Song</th>
+            <th scope="col">Artist</th>
+            <th scope="col">BPM</th>
+            <th scope="col">Key</th>
+            <th scope="col">Download</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for content in songs %}
+        <tr>
+            <td>{{ content.song }}</td>
+            <td>{{ content.artist }}</td>
+            <td>{{ content.bpm }}</td>
+            <td>{{ content.key }}</td>
+            <td><a class="btn btn-outline-danger" target="_blank" href="{{ content.download }}">Download</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<script>
+    function myFunction() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }       
+      }
+    }
+    </script>
+{% endblock content %}
