@@ -13,6 +13,7 @@
     <h5>Download Link: {{ post.download }}</h5>
 
     <blockquote>Date Created: {{ post.date_created }}</blockquote>
+    <a href="{{ url_for('song_update',post_id = post.id) }}"><button class="btn btn-primary">Update</button></a>
 </div>
 
 {% endblock content %}

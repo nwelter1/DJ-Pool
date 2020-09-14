@@ -140,7 +140,29 @@ def song_detail(post_id):
     return render_template('song_detail.html', post=post)
 
 # Update Method for Songs
+@app.route('/songs/update/<int:post_id>', methods=['GET','POST'])
+@login_required
+def song_update(post_id):
+    post = SongPost.query.get_or_404(post_id)
+    song_update = SongPostForm()
+    if request.method =='POST' and song_update.validate():
+        song = song_update.song.data
+        artist = song_update.artist.data
+        bpm = song_update.bpm.data
+        key = song_update.key.data
+        user_id = current_user.id
 
+        #Update
+        post.song = song
+        post.artist = artist
+        post.bpm = bpm
+        post.key = key
+        post.user_id = user_id
+        db.session.commit()
+        return redirect(url_for('song_update', post_id=post_id))
+
+
+    return render_template('song_update.html', song_update=song_update)
 
 #log out route
 @app.route('/logout')

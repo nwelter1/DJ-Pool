@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h2>Edit your song post:</h2>
+    <form action="" method="POST">
+        {{ song_update.hidden_tag() }}
+        <div class="form-group">
+            <fieldset>
+                {{ song_update.song.label }}
+                {{ song_update.song(class="form-control", placeholder="Update Song") }}
+            </fieldset>
+            <fieldset>
+                {{ song_update.artist.label }}
+                {{ song_update.artist(class="form-control", placeholder="Update Artist") }}
+            </fieldset>
+            <fieldset>
+                {{ song_update.bpm.label }}
+                {{ song_update.bpm(class="form-control", placeholder="Update BPM") }}
+            </fieldset>
+            <fieldset>
+                {{ song_update.key.label }}
+                {{ song_update.key(class="form-control", placeholder="Update Key") }}
+            </fieldset>
+            <fieldset>
+                {{ song_update.download.label }}
+                {{ song_update.download(class="form-control", placeholder="Update Download Link") }}
+            </fieldset>
+            {{ song_update.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
