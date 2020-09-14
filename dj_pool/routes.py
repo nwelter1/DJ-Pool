@@ -112,6 +112,16 @@ def post_update(post_id):
 
     return render_template('post_update.html', update_form=update_form)
 
+# Delete Method for Posts
+@app.route('/posts/delete/<int:post_id>', methods=['POST'])
+@login_required
+def post_delete(post_id):
+    post_content = Post.query.get_or_404(post_id)
+    db.session.delete(post_content)
+    db.session.commit()
+    return redirect(url_for('yourprofile'))
+
+
 # Create a Song Post Route 
 @app.route('/createasong', methods=['GET',"POST"])
 @login_required
@@ -164,6 +174,15 @@ def song_update(post_id):
 
     return render_template('song_update.html', song_update=song_update)
 
+
+# Delete Method for Songs
+@app.route('/songs/delete/<int:post_id>', methods=['POST'])
+@login_required
+def song_delete(post_id):
+    post = SongPost.query.get_or_404(post_id)
+    db.session.delete(post)
+    db.session.commit()
+    return redirect(url_for('yourprofile'))
 #log out route
 @app.route('/logout')
 def logout():
