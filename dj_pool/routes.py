@@ -88,9 +88,29 @@ def post_detail(post_id):
     post_content = Post.query.get_or_404(post_id)
     return render_template('post_detail.html', post_content=post_content)
 
+# Update Method for Posts
+@app.route('/posts/update/<int:post_id>', methods=['GET','POST'])
+@login_required
+def post_update(post_id):
+    post_content = Post.query.get_or_404(post_id)
+    update_form = BlogPostForm()
+
+    if request.method =='POST' and update_form.validate():
+        title = update_form.title.data
+        post = update_form.post.data
+        user_id = current_user.id
+        
+        #Update post with form info
+        post_content.title = title
+        post_content.post = post
+        post_content.user_id = user_id
+
+        #commit
+        db.session.commit()
+        return redirect(url_for('post_update', post_id=post_id))
 
 
-
+    return render_template('post_update.html', update_form=update_form)
 
 # Create a Song Post Route 
 @app.route('/createasong', methods=['GET',"POST"])
@@ -112,12 +132,16 @@ def createasong():
         print('\n', song, artist, bpm, key, download)
     return render_template('createasong.html', form =form)
 
-# Retireve Method for Songs
+# Retreve Method for Songs
 @app.route('/songs/<int:post_id>')
 @login_required
 def song_detail(post_id):
     post = SongPost.query.get_or_404(post_id)
     return render_template('song_detail.html', post=post)
+
+# Update Method for Songs
+
+
 #log out route
 @app.route('/logout')
 def logout():
