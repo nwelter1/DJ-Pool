@@ -13,3 +13,8 @@ class BlogPostForm(FlaskForm):
     title = StringField('Title', validators=[DataRequired()])
     post = TextAreaField('Post', validators=[DataRequired()])
     submit = SubmitField()
+
+class LoginForm(FlaskForm):
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    submit = SubmitField()

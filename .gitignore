@@ -1,3 +1,5 @@
 djpoolenv
 __pycache__
 .DS_store
+.env
+app.db
