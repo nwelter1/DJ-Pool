@@ -4,7 +4,7 @@
 <h1 class="page-title">Your Profile</h1>
 <h2>Username: {{ current_user.username }} </h2>
 <h3>Your Contributions</h3>
-<div class="container">
+<div class="container" id="profile-posts">
     <h2>Blog Posts</h2>
 {% for content in posts %}
     {% if content.user_id == current_user.id %}

@@ -6,7 +6,7 @@
 <!-- Registration form from forms.py -->
 <form action="" method="post">
     {{ form.hidden_tag() }}
-    <div class="form-group">
+    <div class="form-group col-4">
         <fieldset>
             {{ form.username.label }}
             {{ form.username(class="form-control", placeholder="Username") }}

@@ -24,3 +24,22 @@ html {
 h1{
     color: #92140C
 }
+
+
+#profile-posts .card{
+    display: inline-block;
+}
+
+#blogcard {
+    margin-left: 10vw;
+}
+.blogcreate {
+    margin-left: 10vw;
+    margin-top: 3vh;
+}
+
+.form-group {
+    padding: 1%;
+    border:1px solid black;
+    border-radius: 10px;
+}
