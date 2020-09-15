@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h1 class="" id="reg-title">Add a song to the pool</h1>
 <form action="" method="post">
     {{ form.hidden_tag() }}
-    <div class="form-group">
+    <div class="form-group col-4" id="reg-form">
         <fieldset>
             {{ form.song.label }}
             {{ form.song(class="form-control", placeholder="Song") }}
@@ -24,6 +25,7 @@
             {{ form.download.label }}
             {{ form.download(class="form-control", placeholder="Download Link") }}
         </fieldset>
+        <br>
         {{ form.submit(class="btn btn-success") }}
     </div>
 </form>

@@ -4,9 +4,9 @@
 
 <div class="container">
     <h1>{{ post_content.author.username }}'s post</h1>
-    <h3>Content:</h3>
+    <h3 class="detail-content">Content:</h3>
     <hr>
-    <h3>Title: {{ post_content.title }}</h3>
+    <h3><span id="identifier">Title:</span> {{ post_content.title }}</h3>
     <p>{{ post_content.post }}</p>
 
     <blockquote>Date Created: {{ post_content.date_created }}</blockquote>

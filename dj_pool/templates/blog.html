@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 class="page-title">Chicago DJ Pool Official Blog</h1>
+<h1 class="page-title" id="page-head">Chicago DJ Pool Official Blog</h1>
 <h5 class="blogcreate"><a href="{{ url_for('createapost') }}">Create a Post</a></h5>
 {% if current_user.is_authenticated %}
 
@@ -18,6 +18,11 @@
 {% endfor %}
 
 {% else %}
-    <h2>Log in to view blog posts!</h2>
+<div class="card" id="blogcard" style="width: 28rem;">
+  <div class="card-body">
+    <h5 class="card-title">Log in to see blog posts!</h5>
+  </div>
+</div>
+<br>
 {% endif %}
 {% endblock content %}

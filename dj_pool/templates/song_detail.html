@@ -4,13 +4,13 @@
 
 <div class="container">
     <h1>{{ current_user.username }}'s song post</h1>
-    <h3>Content:</h3>
+    <h3 class="detail-content">Content:</h3>
     <hr>
-    <h3>song: {{ post.song }}</h3>
-    <h4>Artist: {{ post.artist }}</h4>
-    <h5>Key {{ post.key }}</h5>
-    <h5>BPM: {{ post.bpm }}</h5>
-    <h5>Download Link: {{ post.download }}</h5>
+    <h3><span id="identifier">Song:</span> {{ post.song }}</h3>
+    <h4><span id="identifier">Artist:</span> {{ post.artist }}</h4>
+    <h5><span id="identifier">Key:</span> {{ post.key }}</h5>
+    <h5><span id="identifier">BPM:</span> {{ post.bpm }}</h5>
+    <h5><span id="identifier">Download Link:</span> {{ post.download }}</h5>
 
     <blockquote>Date Created: {{ post.date_created }}</blockquote>
     <a href="{{ url_for('song_update',post_id = post.id) }}"><button class="btn btn-primary">Update</button></a>

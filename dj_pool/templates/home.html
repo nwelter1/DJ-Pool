@@ -2,9 +2,19 @@
 
 {% block content %}
 <header class="banner">
-    <h1 class="header-text">Your #1 source for new music</h1>
+    <h2 class="header-text">Your #1 source for new music</h2>
 </header>
-<h1>What up {{ current_user.username }}! Welcome to the pool!</h1>
-
-
+<div class="container" id="home-content">
+    <h1>What up {{ current_user.username }}! Welcome to the pool!</h1>
+    <h2>Getting started</h2>
+        <p>The Chicago DJ Pool is an app designed to let you share your music with other DJ's in the area. To get started, head over to the <br>
+        'Register' page to sign up! You can then use your credentials to log in and view the blog and song pool!</p>
+    <h5>Adding content</h5>
+        <p>After logging in, you can click the "Create" button on both the Blog and Song Pool tabs. Then just fill out the form and your <br>
+        contribution will be posted onto the database.</p>
+    <h5>Download links</h5>
+        <p>When adding a new song, please include a direct download link in the "Download link" field. This makes it easier for other users to get your tracks quickly!</p>
+    <h2>Your Profile</h2>
+        <p>From your profile, you can see all of your contributions to the site. Here, you also have the option to edit or delete any of your blog posts or songs.</p>
+</div>
 {% endblock content %}

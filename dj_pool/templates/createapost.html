@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<h1 class="" id="reg-title">Create a Blog Post</h1>
 <form action="" method="POST">
     {{ form.hidden_tag() }}
-    <div class="form-group">
+    <div class="form-group col-4" id="reg-form">
         <fieldset>
             {{ form.title.label }}
             {{ form.title(class="form-control", placeholder="Title") }}
@@ -12,6 +12,7 @@
             {{ form.post.label }}
             {{ form.post(class="form-control", placeholder="Post") }}
         </fieldset>
+        <br>
         {{ form.submit(class="btn btn-success") }}
     </div>
     

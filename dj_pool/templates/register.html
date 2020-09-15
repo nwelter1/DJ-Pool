@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 class="justify-content-center">Register a new account</h1>
+<h1 class="" id="reg-title">Register a new account</h1>
 
 <!-- Registration form from forms.py -->
-<form action="" method="post">
+<form action="" method="post" id="reg-form">
     {{ form.hidden_tag() }}
     <div class="form-group col-4">
         <fieldset>
@@ -23,6 +23,7 @@
             {{ form.confirm_password.label }}
             {{ form.confirm_password(class="form-control", placeholder="Confirm Password")}}
         </fieldset>
+        <br>
         {{ form.submit(class="btn btn-success")}}
     </div>
 </form>

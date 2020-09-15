@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 class="page-title">Your Profile</h1>
-<h2>Username: {{ current_user.username }} </h2>
-<h3>Your Contributions</h3>
+<div class="profile-info">
+    <h1 class="page-title">Your Profile</h1>
+    <h3 class="user-name">Username: {{ current_user.username }} </h3>
+</div>
+
 <div class="container" id="profile-posts">
+    <h2 id="title">Your Contributions:</h2>
     <h2>Blog Posts</h2>
 {% for content in posts %}
     {% if content.user_id == current_user.id %}
@@ -19,8 +22,8 @@
 {% endfor %}
 </div>
 <div class="container">
-<h2>Songs</h2>
-<table class="table">
+<h2 class="songs-title">Songs</h2>
+<table class="table" id="prof-table">
     <thead>
         <tr>
             <th scope="col">Song</th>

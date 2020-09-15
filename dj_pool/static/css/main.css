@@ -1,45 +1,143 @@
+/* Navbar section */
+
 .navbar-brand {
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: -1px;
+    
+}
+#logo {
+    color: #E5383B;
+}
+#navbar {
+    background-color: #0B090A;
+    margin-bottom: 0;
+    
+}
+#navbar li a {
+    color: #D3D3D3;
 }
 
+/* Home section */
 .banner {
-    height: 95vh;
-    background-image: linear-gradient(to right bottom, rgba(238, 8, 8, 0.7), rgba(0, 0, 0, 0.6)), url(../images/dj-photo.jpg);
+    height: 40vh;
+    background-image: linear-gradient(to right bottom, rgba(0, 0, 0, 0.6), #A4161A), url(../images/dj-photo.jpg);
     background-size: cover;
     background-position: 35% 50%;
+    margin-top: 0;
 }
 .header-text {
     display: flex;
     justify-content: center;
-    padding-top: 20%;
+    padding-top: 8%;
     left: 20rem;
     top: 10rem;
-    color: white;
+    color: #B1A7A6;
+    opacity: 0.4;
 }
 
-html {
-    background-color: #1E1E24;
+body {
+    background-color: #161A1D;
 }
 h1{
-    color: #92140C
+    color: #F5F3F4;
+    margin-top: 1vh;
+}
+#home-content {
+    margin-left: 3.5vw;
+    margin-bottom: 10vh;
+}
+#home-content h5 {
+    color: #A4161A;
+}
+#home-content h2 {
+    color: #B1A7A6;
+}
+#home-content p{
+    color: #FFFFFF;
 }
 
-
+/* Profile section */
+#profile-posts {
+    margin-bottom: 2vh;
+    margin-top: 7vh;
+}
 #profile-posts .card{
     display: inline-block;
 }
+#profile-posts #title {
+    color: #FFFFFF;
+}
+#profile-posts h2 {
+    color: #BA181B;
+    
+}
+.profile-info {
+    margin-left: 2vw;
+    margin-bottom: 2vh;
+}
+.user-name {
+    color: #D3D3D3;
+}
 
+#prof-table {
+    color: #FFFFFF;
+}
+.songs-title {
+    color: #BA181B;
+}
+
+/* Blog section */
 #blogcard {
     margin-left: 10vw;
+    background-color: #FFFCF2 ;
+}
+.card-title {
+    color: black;
+}
+.card-text {
+    color: black;
 }
 .blogcreate {
     margin-left: 10vw;
     margin-top: 3vh;
 }
 
+/* Forms section */
 .form-group {
     padding: 1%;
     border:1px solid black;
     border-radius: 10px;
+    background-color: #F5F3F4;
+    margin: auto;
+}
+
+/*Multiple Pages */
+#page-head {
+    margin-left: 2vw;
+}
+
+/* song pool section  */
+.song-grouping {
+    margin-left: 12vw;
+    margin-top: 3vh;
+}
+
+/* Registration section */
+#reg-form {
+    margin-top: 2vh;
+}
+#reg-title {
+    justify-content: center;
+    display: flex;
+}
+
+#identifier {
+    color: #E5383B ;
+}
+.container h3,h4,h5,blockquote,p{
+    color: #FFFFFF
+}
+
+.detail-content {
+    color: #F5F3F4;
 }
