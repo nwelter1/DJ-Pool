@@ -5,6 +5,9 @@
     letter-spacing: -1px;
     
 }
+#icon {
+    color: #D3D3D3;
+}
 #logo {
     color: #E5383B;
 }
@@ -89,7 +92,7 @@ h1{
 /* Blog section */
 #blogcard {
     margin-left: 10vw;
-    background-color: #FFFCF2 ;
+    background-color: #FFFFFF ;
 }
 .card-title {
     color: black;
