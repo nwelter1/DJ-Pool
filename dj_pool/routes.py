@@ -45,7 +45,7 @@ def register():
         #Email sender
         msg = Message(f'Thanks for signing up, {username}!', recipients=[email])
         msg.body = ('Congrats on your new DJ Pool account! Looking forward to seeing your posts!')
-        msg.html = ('<h1>Welcome to The Chicago DJ Pool</h1>' '<p>You can now access and post to the blog and music database!</p>')
+        msg.html = ('<h1>Welcome to The Chicago DJ Pool</h1>' '<p>You can now access and post to the blog and music database! https://dj-pool.herokuapp.com</p>')
         mail.send(msg)
     return render_template('register.html', form=form)
 
